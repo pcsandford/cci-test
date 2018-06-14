@@ -47,9 +47,7 @@ workflows:
             - pre
       - staging:
           requires:
-            - pre
             - post
       - production:
           requires:
-            - pre
             - post
