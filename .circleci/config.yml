@@ -13,6 +13,7 @@ jobs:
       - checkout
       - run: sudo npm install bower -g
       - run: bower install
+      - run: npm install
       - run: echo "post job complete"
   staging:
     docker:
