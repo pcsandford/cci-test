@@ -41,7 +41,9 @@ workflows:
   staging_and_production:
     jobs:
       - pre
-      - post
+      - post:
+          requires:
+            - pre
       - staging:
           requires:
             - pre
