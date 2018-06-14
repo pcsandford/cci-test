@@ -45,4 +45,4 @@ workflows:
       - production:
           requires:
             - pre
-            - posts
+            - post
