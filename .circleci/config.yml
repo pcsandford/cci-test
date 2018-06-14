@@ -1,12 +1,14 @@
 version: 2
 jobs:
   pre:
+    working_directory: ~/cci-test
     docker:
       - image: circleci/node:8.1.4
     steps:
       - checkout
       - run: echo "pre job complete"
   post:
+    working_directory: ~/cci-test
     docker:
       - image: circleci/node:8.1.4
     steps:
@@ -16,6 +18,7 @@ jobs:
       - run: npm install
       - run: echo "post job complete"
   staging:
+    working_directory: ~/cci-test
     docker:
       - image: circleci/node:8.1.4
     filters:
@@ -28,6 +31,7 @@ jobs:
           command: gulp build
       - run: echo "Staging test completed"
   production:
+    working_directory: ~/cci-test
     docker:
       - image: circleci/node:8.1.4
     filters:
