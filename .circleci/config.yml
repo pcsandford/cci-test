@@ -5,13 +5,13 @@ jobs:
       - image: circleci/node:8.1.4
     steps:
       - checkout
-      - run: echo "pre job"
+      - run: echo "pre job complete"
   post:
     docker:
       - image: circleci/node:8.1.4
     steps:
       - checkout
-      - run: npm install bower -g
+      - run: sudo npm install bower -g
       - run: bower install
       - run: echo "post job complete"
   staging:
