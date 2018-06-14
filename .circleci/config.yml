@@ -1,8 +1,48 @@
 version: 2
 jobs:
-   build:
-     docker:
-       - image: circleci/node:8.1.4
-     steps:
-       - checkout
-       - run: echo "hello world"
+  pre:
+    docker:
+      - image: circleci/node:8.1.4
+    steps:
+      - checkout
+      - run: echo "pre job"
+  post:
+    docker:
+      - image: circleci/node:8.1.4
+    steps:
+      - checkout
+      - run: echo "post job"
+  staging:
+    docker:
+      - image: circleci/node:8.1.4
+    filters:
+      branches:
+        only:
+          /(feature|fix|chore).*/
+    steps:
+      - checkout
+      - run: echo "Staging test completed"
+  production:
+    docker:
+      - image: circleci/node:8.1.4
+    filters:
+      branches:
+        only:
+          -master
+    steps:
+      - checkout
+      - run: echo "Production test completed"
+workflows:
+  version: 2
+  staging_and_production:
+    jobs:
+      - pre
+      - post
+      - staging:
+          requires:
+            - pre
+            - post
+      - production:
+          requires:
+            - pre
+            - posts
