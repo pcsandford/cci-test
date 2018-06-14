@@ -1,0 +1,12 @@
+//import the partial files
+@import "partials";
+
+/** 1. General Styles -- _layout.scss **/
+main {
+  @extend %main;
+}
+
+h2 {
+  color:$color_black;
+  text-align:center;
+}

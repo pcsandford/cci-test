@@ -1,0 +1,15 @@
+/* == Containers ==*/
+%main {
+  width: 100vw;
+  height: 100vh;
+  overflow:hidden;
+  background:$color_white;
+  color:$color_black;
+  position: relative;
+  display:flex;
+  flex-direction:column;
+  text-wrap:no-wrap;
+  align-items:center;
+  justify-content:center;
+}
+

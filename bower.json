@@ -1,0 +1,44 @@
+{
+  "name": "circle-ci-2.0-test",
+  "version": "1.0",
+  "authors": [
+    "Peter Cameron <peter.cameron@risevision.com>",
+    "Mathew Meiers <mlm@risedisplay.com>"
+  ],
+  "description": "Test for using Circle CI 2.0",
+  "main": "index.html",
+  "keywords": [
+    "polymer",
+    "web-components",
+    "google-sheets"
+  ],
+  "license": "GPLv3",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "bower_components",
+    "tests"
+  ],
+  "dependencies": {
+    "iron-ajax": "PolymerElements/iron-ajax#^1.0.0",
+    "polymer": "Polymer/polymer#^1.0.0",
+    "underscore": "~1.8.2",
+    "moment": "^2.14.0",
+    "moment-timezone": "^0.5.5",
+    "rise-google-sheet": "https://github.com/Rise-Vision/rise-google-sheet.git#^2.4.11",
+    "widget-common": "https://github.com/Rise-Vision/widget-common.git#3.4.10"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "pure": "^0.6.0",
+    "web-component-tester": "*",
+    "moment-timezone": "^0.5.11"
+  },
+  "resolutions": {
+    "jquery": "^3.2.1",
+    "rise-data": "2.0.1"
+  },
+  "private": true
+}

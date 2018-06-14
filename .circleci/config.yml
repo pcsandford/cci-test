@@ -11,16 +11,19 @@ jobs:
       - image: circleci/node:8.1.4
     steps:
       - checkout
-      - run: echo "post job"
+      - run: npm install bower -g
+      - run: bower install
+      - run: echo "post job complete"
   staging:
     docker:
       - image: circleci/node:8.1.4
     filters:
       branches:
         only:
-          /(feature|fix|chore).*/
+          - /(feature|fix|chore).*/
     steps:
       - checkout
+      - run: gulp build
       - run: echo "Staging test completed"
   production:
     docker:
@@ -28,9 +31,10 @@ jobs:
     filters:
       branches:
         only:
-          -master
+          - master
     steps:
       - checkout
+      - run: gulp build
       - run: echo "Production test completed"
 workflows:
   version: 2
