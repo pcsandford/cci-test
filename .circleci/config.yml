@@ -24,7 +24,8 @@ jobs:
           - /(feature|fix|chore).*/
     steps:
       - checkout
-      - command: gulp build
+      - run:
+          command: gulp build
       - run: echo "Staging test completed"
   production:
     docker:
@@ -35,7 +36,8 @@ jobs:
           - master
     steps:
       - checkout
-      - command: gulp build
+      - run:
+          command: gulp build
       - run: echo "Production test completed"
 workflows:
   version: 2
