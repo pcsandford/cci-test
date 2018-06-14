@@ -17,6 +17,11 @@ jobs:
       - run: bower install
       - run: npm install
       - run: echo "post job complete"
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - cci-test/*
+
   staging:
     working_directory: ~/cci-test
     docker:
