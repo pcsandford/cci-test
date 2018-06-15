@@ -15,15 +15,16 @@ jobs:
       - checkout
       - run: sudo npm install bower -g
       - run: bower install
+      - run: npm install
+      - run:
+          name: Build project
+          command: gulp build
       - run: echo "post job complete"
       - persist_to_workspace:
           root: ~/
           paths:
             - cci-test/*
-
   staging:
-    attach_workspace:
-      at: ~/cci-test
     docker:
       - image: circleci/node:8.1.4
     filters:
@@ -32,9 +33,9 @@ jobs:
           - /(feature|fix|chore).*/
     steps:
       - checkout
-      - run:
-          name: Build project
-          command: gulp build
+      # - run:
+      #     name: Build project
+      #     command: gulp build
       - run: echo "Staging test completed"
   production:
     working_directory: ~/cci-test
@@ -46,9 +47,9 @@ jobs:
           - master
     steps:
       - checkout
-      - run:
-          name: Build project
-          command: gulp build
+      # - run:
+      #     name: Build project
+      #     command: gulp build
       - run: echo "Production test completed"
 workflows:
   version: 2
