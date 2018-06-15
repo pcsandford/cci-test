@@ -3,7 +3,7 @@ jobs:
   pre:
     working_directory: ~/cci-test
     docker:
-      - image: circleci/node:stable
+      - image: circleci/node:8.1.4
     steps:
       - checkout
       - run: echo "pre job complete"
