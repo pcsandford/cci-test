@@ -33,7 +33,8 @@ jobs:
     steps:
       - checkout
       - run:
-          command: gulp
+          name: Build project
+          command: gulp build
       - run: echo "Staging test completed"
   production:
     working_directory: ~/cci-test
@@ -46,7 +47,8 @@ jobs:
     steps:
       - checkout
       - run:
-          command: gulp
+          name: Build project
+          command: gulp build
       - run: echo "Production test completed"
 workflows:
   version: 2
