@@ -17,9 +17,6 @@ jobs:
       - run: bower install
       - run: npm install
       - run: sudo npm install gulp -g
-      - run:
-          name: Build project
-          command: gulp build
       - run: echo "post job complete"
       - persist_to_workspace:
           root: ~/
@@ -34,9 +31,9 @@ jobs:
           - /(feature|fix|chore).*/
     steps:
       - checkout
-      # - run:
-      #     name: Build project
-      #     command: gulp build
+      - run:
+          name: Build project
+          command: gulp build
       - run: echo "Staging test completed"
   production:
     working_directory: ~/cci-test
