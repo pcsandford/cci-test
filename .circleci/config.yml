@@ -16,9 +16,10 @@ jobs:
       - run: sudo npm install bower -g
       - run: bower install
       - run: npm install
+      - run: npm install gulp -g
       - run:
           name: Build project
-          command: npm gulp build
+          command: gulp build
       - run: echo "post job complete"
       - persist_to_workspace:
           root: ~/
