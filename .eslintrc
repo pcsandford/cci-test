@@ -1,0 +1,27 @@
+{
+  "env": {
+    //remove either of the lines below if you don't need it
+    //enable nodejs environment
+  "node": 1,
+    //enable browser environment
+   "browser": 1,
+  },
+  "globals": {
+    //place settings for globals here, such as
+   "jQuery":false,
+   "$": true
+  },
+  "rules": {
+    //enable ESLint rules, such as
+    'quotes': [1, 'double'],
+    'semi': [1, 'always']
+  },
+  "parser": "babel-eslint",
+  "parserOptions":{
+  "ecmaVersion":6,
+  "sourceType": "module"
+},
+  "plugins": [
+    //you can put plugins here
+  ]
+}
