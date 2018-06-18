@@ -31,6 +31,8 @@ jobs:
           - /(feature|fix|chore).*/
     steps:
       - checkout
+      - attach_workspace:
+            at: cci-test/
       - run:
           name: Build project
           command: gulp build
