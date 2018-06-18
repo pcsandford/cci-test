@@ -13,16 +13,12 @@ jobs:
       - image: circleci/node:8.1.4
     steps:
       - checkout
-      # - run: sudo npm install bower -g
-      - restore_cache:
-        keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+      - run: sudo npm install bower -g
       - run: bower install
       - run: npm install
       - run:
           name: Build project
-          command: gulp build
+          command: npm gulp build
       - run: echo "post job complete"
       - persist_to_workspace:
           root: ~/
