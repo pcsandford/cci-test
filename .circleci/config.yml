@@ -16,7 +16,7 @@ jobs:
       - run: sudo npm install bower -g
       - run: bower install
       - run: npm install
-      - run: npm install gulp -g
+      - run: sudo npm install gulp -g
       - run:
           name: Build project
           command: gulp build
