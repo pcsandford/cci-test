@@ -24,11 +24,11 @@ jobs:
             - node_modules/
             - bower_components/
       - persist_to_workspace:
-          root: ~/cci-test
+          root: ~/
           paths:
-            - node_modules/
-            - bower_components/
+            - cci-test/*
   staging:
+    working_directory: ~/cci-test
     docker:
       - image: circleci/node:8.1.4
     filters:
