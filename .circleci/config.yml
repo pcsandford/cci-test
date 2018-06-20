@@ -19,7 +19,7 @@ jobs:
       - run: sudo npm install gulp -g
       - run: echo "post job complete"
       - persist_to_workspace:
-          root: cci-test/
+          root: ./
           paths:
             - cci-test/node_modules/
             - cci-test/bower_components/
@@ -33,7 +33,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-            at: cci-test/
+            at: ./
       - run:
           name: Build project
           command: gulp build
