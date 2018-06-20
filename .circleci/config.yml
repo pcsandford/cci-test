@@ -16,7 +16,6 @@ jobs:
       - run: sudo npm install bower -g
       - run: bower install
       - run: npm install
-      - run: sudo npm install gulp -g
       - run: echo "post job complete"
       - save_cache:
           key: my-cache
@@ -41,6 +40,7 @@ jobs:
           keys: my-cache
       - attach_workspace:
             at: ~/cci-test
+      - run: sudo npm install gulp -g
       - run:
           name: Build project
           command: gulp build
