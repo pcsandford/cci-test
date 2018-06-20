@@ -18,6 +18,11 @@ jobs:
       - run: npm install
       - run: sudo npm install gulp -g
       - run: echo "post job complete"
+      - save_cache:
+          key: my-cache
+          paths:
+            - node_modules/
+            - bower_components/
       - persist_to_workspace:
           root: ~/cci-test
           paths:
@@ -32,6 +37,8 @@ jobs:
           - /(feature|fix|chore).*/
     steps:
       - checkout
+      - restore_cache:
+          keys: my-cache
       - attach_workspace:
             at: ~/cci-test
       - run:
